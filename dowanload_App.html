@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سرور | SROUR</title>
+    <link rel="icon" href="assets/logos.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .logo {
+            width: 100px;
+            border-radius: 25%;
+            margin-top: 20px;
+        }
+        .rating, .downloads, .age {
+            display: inline-block;
+            margin: 10px;
+            font-size: 18px;
+        }
+        .button {
+            display: block;
+            background-color: transparent;
+            color: #0f9d58;
+            border: 2px solid #0f9d58;
+            padding: 10px 20px;
+            margin: 10px auto;
+            text-decoration: none;
+            border-radius: 25px;
+            width: 200px;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0f9d58;
+            color: white;
+        }
+        .button:active {
+            background-color: #0c7a46;
+            color: white;
+        }
+        .images {
+           display: flex;
+           justify-content: space-between;
+           padding: 10px;
+           margin: 0;
+           overflow-x: auto;
+           gap: 20px;
+           border-radius: 10px;
+        }
+        .images img {
+            width: 150px;
+            border-radius: 20px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .text-start {
+            text-align: start;
+            font-weight: normal;
+            margin: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 20px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .footer-space {
+            height: 45px;
+        }
+        .footer-text {
+            background-color: #f0f0f0;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="assets/logo.jpg" alt="SROUR Logo" class="logo">
+    <h1>سرور | SROUR</h1>
+    <p>Programmer Omar Ahmed Obeid</p>
+    
+    <a href="assets/srour.apk" id="installButton1" class="button" download>Download for android</a>
+    <a href="assets/srour.ipa" id="installButton2" class="button" download>Download for iPhone</a>
+    
+    
+    <h3 class="text-start">صور داخل التطبيق ></h3>
+    
+    <div class="images">
+        <img src="assets/screenshot1.png" alt="App Screenshot 1" onclick="openModal(this.src, 0)">
+        <img src="assets/screenshot2.png" alt="App Screenshot 2" onclick="openModal(this.src, 1)">
+        <img src="assets/screenshot3.png" alt="App Screenshot 3" onclick="openModal(this.src, 2)">
+        <img src="assets/screenshot4.png" alt="App Screenshot 4" onclick="openModal(this.src, 3)">
+    </div>    
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <div class="footer-space"></div>
+    <div class="footer-text">
+        شركة حلاوة سرور الشامية الاصلية ® 
+    </div>
+
+    <script>
+        var images = document.querySelectorAll('.images img');
+        var currentIndex = 0;
+
+        function openModal(src, index) {
+            var modal = document.getElementById("myModal");
+            var modalImage = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImage.src = src;
+            currentIndex = index;
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
